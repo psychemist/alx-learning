@@ -4,7 +4,8 @@
 char *cap_string(char *s)
 {
 	int i, j;
-	char spec[] = {' ', '\t', '\n', ',', ';', '.', '!', '?', '"', '(', ')', '{', '}'};
+	char spec[] = {' ', '\t', '\n', ',', ';', '.', 
+			'!', '?', '"', '(', ')', '{', '}'};
 	i = 0;
 		
 	while (s[i])
@@ -12,12 +13,11 @@ char *cap_string(char *s)
 		j = 0;
 		while (spec[j])
 		{
-			if (s[i] == spec[j])
+			if (s[i] == spec[j] && 
+				s[i + 1] >= 'a' && s[i + 1] <= 'z')
 			{
-				if (s[i + 1] >= 97 && s[i + 1] <= 122)
-				{
-					s[i + 1] -= 32;
-				}
+				/* use pointer arithmetic here */
+				*(s + i + 1) -= 32;
 			}
 			j++;
 		}
