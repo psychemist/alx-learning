@@ -1,8 +1,6 @@
 #include "main.h"
 #include <stdio.h>
 
-int _sqrt_recursion(int n);
-
 int root(int base, int num)
 {
 	int next = (base + num / base) / 2;
@@ -17,12 +15,6 @@ int root(int base, int num)
 	else
 		return root(next, num);
 
-/*	if (base * base == num)
-	{
-		return (base);
-	}
-	if (base 
-	*/
 }
 
 int _sqrt_recursion(int n)
