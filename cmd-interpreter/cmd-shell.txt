@@ -1,0 +1,18 @@
+Shell access
+
+import os
+class shell_cmd(cmd.Cmd,object):
+    def do_shell(self, s):
+        os.system(s)
+    def help_shell(self):
+        print "execute shell commands"
+By deriving from this class, you will be able to execute any shell command:
+
+
+(Cmd) shell date
+Thu Sep 9 08:57:14 CEST 2002
+(Cmd) ! ls /usr/local/lib/python2.2/config
+Makefile Setup.config config.c install-sh makesetup Setup
+Setup.local config.c.in libpython2.2.a python.o
+By the way, the cmd module understands
+the ! character as a shortcut for the shell command and the ? character for help
