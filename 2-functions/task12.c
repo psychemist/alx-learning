@@ -1,35 +1,50 @@
 #include "main.h"
 
-void print_tmes_table(int n)
+void print_times_table(int n)
 {
-	for (i = 0; i <= 9; i++)
-	{
-		for (j = 0; j < 10; j++)
-		{
-			times = i * j;
+	int i, j, times;
 
-			if (times <= 9)
+	if (n > 0 && n <= 15)
+	{
+		for (i = 0; i <= n; i++)
+		{
+			for (j = 0; j <= n; j++)
 			{
-				_putchar(times + '0');
-				if (j != 9)
+				times = i * j;
+
+				if (times < 10)
 				{
-					_putchar(',');
-					_putchar(' ');
-					_putchar(' ');
+					_putchar(times + '0');
+					if (j != n)
+					{
+						_putchar(',');
+						_putchar(' ');
+						_putchar(' ');
+					}
+				}
+				if (times > 9)
+				{
+					if (times < 100)
+					{
+						_putchar(times / 10 + '0');
+						_putchar(times % 10 + '0');
+					}
+
+					if (times >= 100)
+					{
+						_putchar(times / 100 + '0');
+						_putchar(times % 100 + '0');
+					}
+
+					if (j != n)
+					{
+						_putchar(',');
+						_putchar(' ');
+					}
 				}
 			}
-			if (times > 9)
-			{
-				_putchar(times / 10 + '0');
-				_putchar(times % 10 + '0');
-				if (j != 9)
-				{
-					_putchar(',');
-					_putchar(' ');
-				}
-			}
+			_putchar('\n');
 		}
-		_putchar('\n');
 	}
 }
 
