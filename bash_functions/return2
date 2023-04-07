@@ -1,0 +1,22 @@
+#!/bin/bash
+Return_Val=   # Global variable to hold oversize return value of function.
+
+alt_return_test ()
+{
+  fvar=$1
+  Return_Val=$fvar
+  return   # Returns 0 (success).
+}
+
+alt_return_test 1
+echo $?                              # 0
+echo "return value = $Return_Val"    # 1
+
+alt_return_test 256
+echo "return value = $Return_Val"    # 256
+
+alt_return_test 257
+echo "return value = $Return_Val"    # 257
+
+alt_return_test 25701
+echo "return value = $Return_Val"    #25701
